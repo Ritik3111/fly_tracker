@@ -1,12 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
+from selenium.webdriver.support.wait import WebDriverWait
 import re
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
+import typing
+import time
+
 
 
 class PriceScraper():
@@ -15,20 +19,19 @@ class PriceScraper():
         self.dest = dest
         self.price = price
         self.date = date
-
-        return 
-
-
+        print(self.date)
+    
     def get_page(self):
 
+        self.preprocess()
         # Open a headless chrome browser
         options = Options()
         options.add_argument('--window-size=1920,1200')
         #options.add_argument("--headless")
-        service = Service(executable_path='chromedriver_mac64')
-        driver = webdriver.Chrome(service=service,options=options)
 
-        url = 'https://www.google.com/travel/flights/non-stop-flights-from-new-york-to-boston.html'
+        driver = webdriver.Chrome(options=options)
+
+        url = f'https://www.google.com/travel/flights/non-stop-flights-from-{self.src}-to-{self.dest}.html'
         driver.get(url)
 
         driver.find_element(By.XPATH,'//*[@class="dvO2xc k0gFV"]').click()
@@ -36,23 +39,20 @@ class PriceScraper():
         tt.find_element(By.XPATH,'//*[@class="Akxp3 Lxea9c"]').find_element(By.XPATH,'//*[@class="uT1UOd"]').click()
 
         date_box = driver.find_element(By.XPATH,'//*[@class="RKk3r eoY5cb j0Ppje"]')
-        date_box.clear()
-        date_box.send_keys('May 15')
+        time.sleep(2)
 
-        ## wait
-        driver.implicitly_wait(5)
+        driver.execute_script("arguments[0].value=''", date_box)
+        date_box.send_keys("12 May")
         date_box.send_keys(Keys.ENTER)
-
-        driver.refresh()
-
+        time.sleep(2)
         return driver.page_source
 
 
     def soupify(self,page) -> BeautifulSoup:
-        soup = BeautifulSoup(soup)
+        soup = BeautifulSoup(page,features="html.parser")
         return soup
 
-    def parser(self,soup:BeautifulSoup) -> list[dict]:
+    def parser(self,soup:BeautifulSoup) -> "list[dict]":
         flights = soup.find_all(class_='pIav2d')
         data = []
 
@@ -70,6 +70,7 @@ class PriceScraper():
                 "Departure Time": dep_time,
                 "Destination": arr_city,
                 "Arrival Time": arr_time,
+                "Date": self.date,
                 "Price": price,
                 "Airline": airline,
                 "Timestamp": timestamp
@@ -79,6 +80,12 @@ class PriceScraper():
         
         return data
 
-    def create_df(self,data:list[dict]) -> pd.DataFrame:
+    def create_df(self,data:"list[dict]") -> pd.DataFrame:
         df = pd.DataFrame(data)
         return df
+    
+    def preprocess(self):
+        self.src = self.src.replace(' ','-')
+        self.dest = self.dest.replace(' ','-')
+    
+        
