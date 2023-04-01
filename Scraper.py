@@ -2,13 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element_value
-from selenium.webdriver.support.wait import WebDriverWait
+
 import re
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
-import typing
 import time
 
 
@@ -22,12 +20,14 @@ class PriceScraper():
         print(self.date)
     
     def get_page(self):
-
+        """
+        Load dynamic chrome browser and return page source to scrape
+        """
         self.preprocess()
         # Open a headless chrome browser
         options = Options()
         options.add_argument('--window-size=1920,1200')
-        #options.add_argument("--headless")
+        options.add_argument("--headless")
 
         driver = webdriver.Chrome(options=options)
 
@@ -49,10 +49,29 @@ class PriceScraper():
 
 
     def soupify(self,page) -> BeautifulSoup:
+        """
+
+        Return page to scrape as a BeautifulSoup object
+
+        Args:
+            page (html): Source page 
+
+        Returns:
+            BeautifulSoup: parsed bs4 object
+        """
         soup = BeautifulSoup(page,features="html.parser")
         return soup
 
     def parser(self,soup:BeautifulSoup) -> "list[dict]":
+        """
+        Helper parser function that scrapes required details
+
+        Args:
+            soup (BeautifulSoup): Soup object to scrape
+
+        Returns:
+            list[dict]: list of dictionaries which store scraped flight information records
+        """
         flights = soup.find_all(class_='pIav2d')
         data = []
 
@@ -81,10 +100,23 @@ class PriceScraper():
         return data
 
     def create_df(self,data:"list[dict]") -> pd.DataFrame:
+        """
+        Helper function to convert data into a Pandas Dataframe
+
+        Args:
+            data (list[dict]): Flight Information data
+
+        Returns:
+            pd.DataFrame: data in the form of a pandas Dataframe
+        """
+
         df = pd.DataFrame(data)
         return df
     
-    def preprocess(self):
+    def preprocess(self) -> None:
+        """
+        Helper Preprocessing function 
+        """
         self.src = self.src.replace(' ','-')
         self.dest = self.dest.replace(' ','-')
     
