@@ -17,7 +17,6 @@ class PriceScraper():
         self.dest = dest
         self.price = price
         self.date = date
-        print(self.date)
     
     def get_page(self):
         """
@@ -42,19 +41,19 @@ class PriceScraper():
         time.sleep(2)
 
         driver.execute_script("arguments[0].value=''", date_box)
-        date_box.send_keys("12 May")
+        date_box.send_keys(self.date)
         date_box.send_keys(Keys.ENTER)
         time.sleep(2)
         return driver.page_source
 
 
-    def soupify(self,page) -> BeautifulSoup:
+    def soupify(self,page:str) -> BeautifulSoup:
         """
 
         Return page to scrape as a BeautifulSoup object
 
         Args:
-            page (html): Source page 
+            page (str): Source page 
 
         Returns:
             BeautifulSoup: parsed bs4 object
