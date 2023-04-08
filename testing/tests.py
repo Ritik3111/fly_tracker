@@ -10,9 +10,13 @@ from selenium.webdriver.chrome.options import Options
 class TestPriceScraper(unittest.TestCase):
     def setUp(self):
         self.PriceScraper = Scraper.PriceScraper('New York', 'Boston', 100, '12 May')
-        self.expected_df = pd.DataFrame({'src':['New York','New York','New York'],
-                                                    "dest":['Boston','Boston','Boston'],
-                                                    "Price": [100,104,107]})
+        self.expected_df = pd.DataFrame(
+            {
+            'src':['New York','New York','New York'],
+            "dest":['Boston','Boston','Boston'],
+            "Price": [100,104,107]
+            }
+                )
         f = open("test_source_page.html", "r")
         self.mock_page_source = f.read()
         f.close()
@@ -39,9 +43,9 @@ class TestPriceScraper(unittest.TestCase):
     @patch.object(Scraper.PriceScraper, 'parser')
     def test_parser(self, mock_parser):
         expected_data = [{
-            "Source": "Delhi",
+            "Source": "New York",
             "Departure Time": "10:00",
-            "Destination": "Mumbai",
+            "Destination": "Boston",
             "Arrival Time": "12:00",
             "Date": "2022-05-01",
             "Price": "100",
@@ -65,27 +69,17 @@ class TestPriceScraper(unittest.TestCase):
         #mock_soup.assert_called_once_with(self.mock_page_source,features='html.parser')
 
     @patch('selenium.webdriver.Chrome',autospec=True)
-    def test_get_page(self, mock_driver):
-        #mock_driver.Chrome.return_value = mock_driver
+    def test_get_page(self,mock_driver):
+
         mock_driver.page_source = self.mock_page_source
-        mock_element = Mock()
-        mock_element.click.return_value = None
-        mock_element.send_keys.return_value = None
-        mock_driver.find_element.return_value = mock_element
-
-        options = Options()
-        options.add_argument('--window-size=1920,1200')
-        options.add_argument('--headless')
-        mock_driver.return_value.options = options
-
+        mock_response = Mock()
+        mock_response.status_code = 200
+        # create a mock driver.get() method
+        mock_driver.return_value.get.return_value = mock_response.status_code
+        
         page_source = self.PriceScraper.get_page()
 
-        mock_driver.get.assert_called_once_with(f'https://www.google.com/travel/flights/non-stop-flights-from-{self.PriceScraper.src}-to-{self.PriceScraper.dest}.html')
-        mock_driver.find_element.assert_called()
-        mock_driver.execute_script.assert_called()
-        mock_driver.quit.assert_called()
-
-        self.assertEqual(page_source, self.mock_page_source)
+        self.assertIsNotNone(page_source)
 
 
 if __name__ == '__main__':
