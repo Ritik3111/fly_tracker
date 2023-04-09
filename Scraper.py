@@ -1,7 +1,7 @@
 """
 Scrapes and returns a csv file with airline price data
 Returns:
-    pd.Dataframe: Airfare price data between src and dest 
+    pd.Dataframe: Airfare price data between src and dest
 """
 import re
 import datetime
@@ -12,7 +12,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
-
 
 class PriceScraper():
     """
@@ -51,22 +50,17 @@ class PriceScraper():
         date_box.send_keys(Keys.ENTER)
         time.sleep(2)
         return driver.page_source
-
-    def soupify(self, page: str) -> BeautifulSoup:
+    def soupify(self,page: str) -> BeautifulSoup:
         """
-
         Return page to scrape as a BeautifulSoup object
-
         Args:
-            page (str): Source page 
-
+            page (str): Source page
         Returns:
             BeautifulSoup: parsed bs4 object
         """
         soup = BeautifulSoup(page, features="html.parser")
         return soup
-
-    def parser(self, soup: BeautifulSoup) -> "list[dict]":
+    def parser(self,soup: BeautifulSoup) -> "list[dict]":
         """
         Helper parser function that scrapes required details
 
@@ -87,7 +81,6 @@ class PriceScraper():
             price = flight.find(class_=re.compile('YMlIz FpEdX')).text
             airline = flight.find(class_='h1fkLb').span.text
             timestamp = datetime.datetime.now()
-
             info = {
                 "Source": dep_city,
                 "Departure Time": dep_time,
@@ -114,10 +107,10 @@ class PriceScraper():
 
         df = pd.DataFrame(data)
         return df
-
     def preprocess(self) -> None:
         """
-        Helper Preprocessing function 
+        Helper Preprocessing function
         """
         self.src = self.src.replace(' ', '-')
         self.dest = self.dest.replace(' ', '-')
+        
