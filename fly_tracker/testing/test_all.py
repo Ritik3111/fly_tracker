@@ -3,7 +3,6 @@ Unit tests for Scraper.py
 """
 import unittest
 import sys
-import os
 from unittest.mock import Mock, patch
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -29,10 +28,11 @@ class TestPriceScraper(unittest.TestCase):
                 "Price": [100, 104, 107]
             }
         )
-        file_path = os.path.join(os.path.join(os.getcwd(),'testing'),"test_source_page.html")
-        file = open(file_path, "r", encoding='utf-8')
-        self.mock_page_source = file.read()
-        file.close()
+        #file_path = os.path.join(os.path.join(os.getcwd(),'testing'),"test_source_page.html")
+        #file = open(file_path, "r", encoding='utf-8')
+        #self.mock_page_source = file.read()
+        #file.close()
+        self.mock_page_source = "<html> </html>"
         self.expected_soup = BeautifulSoup(
             self.mock_page_source, 'html.parser')
 
