@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from fly_tracker import Scraper
 sys.path.append('../')
 sys.path.append('./')
-sys.path.append('/testing')
+sys.path.append('testing')
 
 class TestPriceScraper(unittest.TestCase):
     """
