@@ -1,6 +1,6 @@
 import argparse
 from datetime import datetime
-from Scraper import PriceScraper
+from fly_tracker.Scraper import PriceScraper
 
 parser = argparse.ArgumentParser()
 
