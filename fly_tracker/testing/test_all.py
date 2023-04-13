@@ -2,10 +2,13 @@
 Unit tests for Scraper.py
 """
 import unittest
+import sys
 from unittest.mock import Mock, patch
 import pandas as pd
 from bs4 import BeautifulSoup
 from fly_tracker import Scraper
+sys.path.append('../')
+sys.path.append('./')
 
 class TestPriceScraper(unittest.TestCase):
     """
