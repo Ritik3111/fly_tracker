@@ -79,6 +79,8 @@ class PriceScraper():
             arr_time = flight.find(class_='XWcVob YMlIz ogfYpf tPgKwe').text
             arr_city = flight.find(class_='c8rWCd sSHqwe ogfYpf tPgKwe').text
             price = flight.find(class_=re.compile('YMlIz FpEdX')).text
+            if price > self.price:
+                continue
             airline = flight.find(class_='h1fkLb').span.text
             timestamp = datetime.datetime.now()
             info = {
