@@ -31,7 +31,7 @@ jobs:
         pylint $(git ls-files '*.py')
     - name: Test with pytest
       run: |
-        pytest --exitfirst --verbose --failed-first\
+        pytest --exitfirst --verbose --failed-first \
         --cov=. --cov-report html
         cat htmlcov/index.html
     - name: Upload coverage reports to Codecov
