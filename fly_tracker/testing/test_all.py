@@ -29,7 +29,7 @@ class TestPriceScraper(unittest.TestCase):
                 "Price": [100, 104, 107]
             }
         )
-        file_path = os.path.join(os.path.join(os.getcwd(),'testing'),"test_source_page.html")
+        #file_path = os.path.join(os.path.join(os.getcwd(),'testing'),"test_source_page.html")
         #file = open(file_path, "r", encoding='utf-8')
         #self.mock_page_source = file.read()
         #file.close()
