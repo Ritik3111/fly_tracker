@@ -3,7 +3,6 @@ Unit tests for Scraper.py
 """
 import unittest
 import sys
-import os
 from unittest.mock import Mock, patch
 import pandas as pd
 from bs4 import BeautifulSoup
