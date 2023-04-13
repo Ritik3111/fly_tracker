@@ -29,8 +29,8 @@ class TestPriceScraper(unittest.TestCase):
                 "Price": [100, 104, 107]
             }
         )
-        print(os.getcwd())
-        file = open("test_source_page.html", "r", encoding='utf-8')
+        file_path = os.path.join(os.path.join(os.getcwd(),'testing'),"test_source_page.html")
+        file = open(file_path, "r", encoding='utf-8')
         self.mock_page_source = file.read()
         file.close()
         self.expected_soup = BeautifulSoup(
