@@ -8,8 +8,7 @@ An open source project that helps you get the best flight deals!
 
 [![codecov](https://codecov.io/gh/Ritik3111/fly_tracker/branch/main/graph/badge.svg)](https://codecov.io/gh/Ritik3111/fly_tracker)
 
-This project has a code coverage of <coverage>%.
-
+![status](https://img.shields.io/github/actions/workflow/status/Ritik3111/fly_tracker/setup.yml)
 
 ## Overview
 
