@@ -3,6 +3,7 @@ An open source project that helps you get the best flight deals!
 
 ![license](https://img.shields.io/github/license/Ritik3111/fly_tracker)
 ![issues](https://img.shields.io/github/issues/Ritik3111/fly_tracker)
+![build](https://img.shields.io/appveyor/build/Ritik3111/fly_tracker)
 
 ## Code Coverage
 
