@@ -18,13 +18,14 @@ The user has the option to set up notifications for the tracked route which can 
 ## Table of Contents
 
 - [Installation](#Installation)
-- [Usage](#Usage)
+- [Usage](#Usage) 
+- [Example] (#Example)
 
 ## Installation 
 
 To install the library: 
 
-`pip install fly-tracker`
+`pip install fly_tracker`
 
 ## Usage
 
@@ -39,8 +40,12 @@ The library takes the following arguments:
 
 Run the following command:
 
-python flytracker --src <src-city> --dst <dest-city> --price <price> --date <date>
+python fly_tracker --src src-city --dst dest-city --price price --date date
 
-Replace <src-city>, <dest-city>, <price>, and <date> with your desired values. This will start tracking the flight prices for the specified route.
+Replace src-city, dest-city, price, and date with your desired values. This will start tracking the flight prices for the specified route.
 
+## Example
 
+`python fly_tracker --src "New York" --dst "Boston" --price 100 --date "12 May"`
+
+This creates a 'Results_TimeStamp.csv' file with all airfares between New York and Boston on 12th May below 100$.
