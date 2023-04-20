@@ -19,7 +19,7 @@ The user has the option to set up notifications for the tracked route which can 
 
 - [Installation](#Installation)
 - [Usage](#Usage) 
-- [Example] (#Example)
+- [Example](#Example)
 
 ## Installation 
 
@@ -40,7 +40,7 @@ The library takes the following arguments:
 
 Run the following command:
 
-python fly_tracker --src src-city --dst dest-city --price price --date date
+`python fly_tracker --src src-city --dst dest-city --price price --date date`
 
 Replace src-city, dest-city, price, and date with your desired values. This will start tracking the flight prices for the specified route.
 
