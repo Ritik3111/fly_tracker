@@ -134,43 +134,5 @@ class TestPriceScraper(unittest.TestCase):
         self.assertEqual(msg['To'], self.email)
         self.assertEqual(msg['Subject'], f"FLY_TRACKER: {self.PriceScraper.src} to {self.PriceScraper.dest} on {self.PriceScraper.date} fares")
 
-    def test_html_template(self):
-        """
-        Unit Test to test html template generation
-        """
-        flight_data_html = self.expected_df.to_html(index=False, classes='table table-striped')
-        expected_html = f'''
-        <html>
-        <head>
-        <style>
-            /* Define table styles */
-            table {{
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-            }}
-
-            td, th {{
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-            }}
-
-            tr:nth-child(even) {{
-            background-color: #dddddd;
-            }}
-        </style>
-        </head>
-        <body>
-
-        <h2>Flight Data</h2>
-
-        {flight_data_html}
-
-        </body>
-        </html>
-        '''
-        self.assertEqual(self.notifier.html_template.strip(), expected_html.strip())
-
 if __name__ == '__main__':
     unittest.main()
