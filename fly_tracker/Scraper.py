@@ -36,13 +36,12 @@ class PriceScraper():
         driver = webdriver.Chrome(options=options)
         url = f'https://www.google.com/travel/flights/non-stop-flights-from-{self.src}-to-{self.dest}.html'
         driver.get(url)
-        driver.find_element(By.XPATH, '//*[@class="dvO2xc k0gFV"]').click()
-        trip_type = driver.find_element(
-            By.XPATH, '//*[@class="A8nfpe yRXJAe iWO5td"]')
+        driver.find_element(By.XPATH, '//*[@class="RLVa8 GeHXyb"]').click()
+        trip_type = driver.find_element(By.XPATH, '//div[contains(@class, "yRXJAe iWO5td")]')
         trip_type.find_element(By.XPATH, '//*[@class="Akxp3 Lxea9c"]').find_element(
             By.XPATH, '//*[@class="uT1UOd"]').click()
         date_box = driver.find_element(
-            By.XPATH, '//*[@class="RKk3r eoY5cb j0Ppje"]')
+            By.XPATH, '//*[contains(@class, "eoY5cb j0Ppje")]')
         time.sleep(2)
 
         driver.execute_script("arguments[0].value=''", date_box)
