@@ -1,2 +1,3 @@
 [MESSAGES CONTROL]
-disable=line-too-long,invalid-name,missing-module-docstring,consider-using-with
+disable=line-too-long,invalid-name,missing-module-docstring,consider-using-with,redefined-builtin
+ignore=conf.py
