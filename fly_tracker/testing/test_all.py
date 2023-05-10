@@ -6,7 +6,7 @@ import sys
 from unittest.mock import Mock, patch
 import pandas as pd
 from bs4 import BeautifulSoup
-from fly_tracker import Scraper
+from fly_tracker import Scraper,Notifier
 sys.path.append('../')
 sys.path.append('./')
 sys.path.append('testing/')
@@ -35,6 +35,8 @@ class TestPriceScraper(unittest.TestCase):
         self.mock_page_source = "<html> </html>"
         self.expected_soup = BeautifulSoup(
             self.mock_page_source, 'html.parser')
+        self.email = 'test@example.com'
+        self.notifier = Notifier(self.email, self.expected_df, self.PriceScraper)
 
     def test_preprocess(self) -> None:
         """
@@ -113,6 +115,62 @@ class TestPriceScraper(unittest.TestCase):
         page_source = self.PriceScraper.get_page()
         self.assertIsNotNone(page_source)
 
+    @patch('smtplib.SMTP.sendmail')
+    def test_send_mail(self, mock_sendmail):
+        """
+        Unit Test for Notifier.send_mail function
+        Args:
+            mock_sendmail (_type_): _description_
+        """
+        self.notifier.send_mail(self.notifier.create_message())
+        mock_sendmail.assert_called_once()
+
+    def test_create_message(self):
+        """
+        Unit Test for Notifier.create_message function
+        """
+        msg = self.notifier.create_message()
+        self.assertEqual(msg['From'], self.notifier.sender)
+        self.assertEqual(msg['To'], self.email)
+        self.assertEqual(msg['Subject'], f"FLY_TRACKER: {self.PriceScraper.src} to {self.PriceScraper.dest} on {self.PriceScraper.date} fares")
+
+    def test_html_template(self):
+        """
+        Unit Test to test html template generation
+        """
+        flight_data_html = self.expected_df.to_html(index=False, classes='table table-striped')
+        expected_html = f'''
+        <html>
+        <head>
+        <style>
+            /* Define table styles */
+            table {{
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }}
+
+            td, th {{
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            }}
+
+            tr:nth-child(even) {{
+            background-color: #dddddd;
+            }}
+        </style>
+        </head>
+        <body>
+
+        <h2>Flight Data</h2>
+
+        {flight_data_html}
+
+        </body>
+        </html>
+        '''
+        self.assertEqual(self.notifier.html_template.strip(), expected_html.strip())
 
 if __name__ == '__main__':
     unittest.main()
