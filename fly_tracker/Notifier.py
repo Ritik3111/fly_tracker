@@ -18,6 +18,7 @@ class Notifier:
         self.dest = scraper.dest
         self.date = scraper.date
         # Define the HTML template
+        # pylint: disable=R080
         self.html_template = '''
         <html>
         <head>
