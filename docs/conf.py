@@ -1,3 +1,4 @@
+import sphinx_rtd_theme
 from recommonmark.transform import AutoStructify
 # Configuration file for the Sphinx documentation builder.
 #
@@ -33,7 +34,7 @@ release = '0.0.1'
 # ones.
 master_doc = "index"
 extensions = [
-    'recommonmark', 
+    'recommonmark',
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
@@ -41,8 +42,6 @@ extensions = [
 ]
 todo_include_todos = True
 source_suffix = ['.rst', '.md']
-
-    
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -56,8 +55,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
