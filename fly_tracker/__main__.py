@@ -1,10 +1,9 @@
 import argparse
-import schedule
 import time
-from datetime import datetime, timedelta
 from datetime import datetime
+import schedule
 from fly_tracker.Scraper import PriceScraper
-from Notifier import Notifier
+from fly_tracker.Notifier import Notifier
 
 parser = argparse.ArgumentParser()
 
@@ -15,9 +14,6 @@ parser.add_argument('--date')
 parser.add_argument('--email')
 
 args = parser.parse_args()
-
-start_date = datetime.now()
-print("Program started at:", start_date)
 
 def main():
     """
@@ -37,7 +33,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
 def script():
     """
     Caller Function that is scheduled to run periodically
