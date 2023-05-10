@@ -3,6 +3,8 @@ An open source project that helps you get the best flight deals!
 
 ![license](https://img.shields.io/github/license/Ritik3111/fly_tracker)
 ![issues](https://img.shields.io/github/issues/Ritik3111/fly_tracker)
+[![PyPI](https://img.shields.io/pypi/v/fly-tracker)](https://pypi.org/project/fly-tracker/)
+
 
 ## Code Coverage
 
@@ -20,13 +22,14 @@ The user has the option to set up notifications for the tracked route which can 
 ## Table of Contents
 
 - [Installation](#Installation)
-- [Usage](#Usage)
+- [Usage](#Usage) 
+- [Example](#Example)
 
 ## Installation 
 
 To install the library: 
 
-`pip install fly-tracker`
+`pip install fly_tracker`
 
 ## Usage
 
@@ -45,5 +48,3 @@ Run the following command:
 python flytracker --src <src-city> --dst <dest-city> --price <price> --date <date> --email <email>
 
 Replace <src-city>, <dest-city>, <price>, <date> and <email> with your desired values. This will start tracking the flight prices for the specified route.
-
-
