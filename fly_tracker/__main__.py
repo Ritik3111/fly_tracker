@@ -31,8 +31,6 @@ def main():
     except KeyboardInterrupt:
         print("Notification Service stopped")
 
-if __name__ == "__main__":
-    main()
 def script():
     """
     Caller Function that is scheduled to run periodically
@@ -47,3 +45,6 @@ def script():
     notifier = Notifier(args.email,df,scraper)
     message = notifier.create_message()
     notifier.send_mail(message)
+
+if __name__ == "__main__":
+    main()
