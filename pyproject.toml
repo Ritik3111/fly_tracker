@@ -11,7 +11,7 @@ name = "fly_tracker"
 authors = [{name = "Ritik Panda", email = "ritik.panda@columbia.edu"}]
 description="The Fly Tracker library lets you monitor the flight prices for any route. The user has the option to set up notifications for the tracked route which can help him book tickets when he wants to."
 readme = "README.md"
-version = "0.0.2"
+version = "0.0.3"
 requires-python = ">=3.7"
 
 dependencies = []
