@@ -6,7 +6,6 @@ An open source project that helps you get the best flight deals!
 ![status](https://img.shields.io/github/actions/workflow/status/Ritik3111/fly_tracker/setup.yml)
 [![docs](https://img.shields.io/readthedocs/fly-tracker)](https://fly-tracker.readthedocs.io/en/latest/)
 [![PyPI](https://img.shields.io/pypi/v/fly-tracker)](https://pypi.org/project/fly-tracker/)
-
 ## Code Coverage
 
 [![codecov](https://codecov.io/gh/Ritik3111/fly_tracker/branch/main/graph/badge.svg)](https://codecov.io/gh/Ritik3111/fly_tracker)
