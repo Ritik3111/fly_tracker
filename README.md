@@ -26,7 +26,7 @@ hence, we notify you with all options avalaible to you.
 
 To install the library: 
 
-`pip install fly-tracker`
+`pip install fly_tracker`
 
 ## Usage
 
