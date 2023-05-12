@@ -36,7 +36,7 @@ To install the library:
 
 The library takes the following arguments:
 
-| Argument | Name | Type | Description
+| Argument | Name | Type | Description |
 | -------- | -------- | -------- | -------- |
 | src | Source | string | Source City |
 | dst | Destination | string |Destination City |

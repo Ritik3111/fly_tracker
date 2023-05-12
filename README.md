@@ -22,11 +22,11 @@ hence, we notify you with all options avalaible to you.
 - [Usage](#Usage)
 - [Example](#Example)
 
-## Installation 
+## Installation
 
-To install the library: 
+To install the library:
 
-`pip install fly_tracker`
+`pip install fly-tracker`
 
 ## Usage
 
