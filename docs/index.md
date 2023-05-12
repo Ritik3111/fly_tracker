@@ -34,17 +34,26 @@ To install the library:
 
 ## Usage
 
+The library takes the following arguments:
+
+| Argument | Name | Type | Description
+| -------- | -------- | -------- | -------- |
+| src | Source | string | Source City |
+| dst | Destination | string |Destination City |
+| price | Price | int |The threshold price that you want to set |
+| date | Date | string | The date you want to fly on |
+| email | Email Address | string | The email address where you want to receive the notifications |
+
 Run the following command:
+`python flytracker --src < src-city > --dest < dest-city > --price < price > --date < date > --email < email >`
 
-`python fly_tracker --src src-city --dst dest-city --price price --date date`
-
-Replace src-city, dest-city, price, and date with your desired values. This will start tracking the flight prices for the specified route.
+Replace < src-city >, < dest-city >, < price >, < date > and < email > with your desired values. This will start tracking the flight prices for the specified route.
 
 ## Example
 
-`python fly_tracker --src "New York" --dst "Boston" --price 100 --date "12 May"`
+To receive notifications regarding fares below $100 for the New York to Boston route on May 12th, please execute the following command, with the specified email address included:
 
-This creates a 'Results_TimeStamp.csv' file with all airfares between New York and Boston on 12th May below 100$.
+`python flytracker --src "New York" --dest "Boston" --price 100 --date "12th May" --email "pandaritik39@gmail.com"`
 
 ```eval_rst
 .. toctree::

@@ -1,5 +1,5 @@
 include *.csv
-include *.ipynb
+include *.py
 include *.md
 include *.txt
 recursive-include fly_tracker *.DS_Store
