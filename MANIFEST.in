@@ -1,7 +1,0 @@
-include *.csv
-include *.py
-include *.md
-include *.txt
-recursive-include fly_tracker *.DS_Store
-recursive-include fly_tracker *.html
-recursive-include fly_tracker *.json
