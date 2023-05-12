@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fly Tracker Command Line Interface (CLI) Example Usage Guide &mdash; Fly Tracker 0.0.3 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="fly_tracker package" href="fly_tracker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fly Tracker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">fly_tracker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Fly Tracker Command Line Interface (CLI) Example Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">1. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-arguments">2. Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">3. Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-1-tracking-flights-from-new-york-to-boston-passing-the-city-names-as-input-and-date-in-words">Example 1: Tracking Flights from New York to Boston - Passing the city names as input and date in words</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2-tracking-flights-from-new-york-to-boston-passing-the-aiport-names-as-input">Example 2: Tracking Flights from New York to Boston - Passing the aiport names as input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-3-tracking-flights-from-new-york-to-boston-passing-the-date-in-mm-dd-format">Example 3: Tracking Flights from New York to Boston - Passing the date in mm-dd format</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fly Tracker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Fly Tracker Command Line Interface (CLI) Example Usage Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="fly-tracker-command-line-interface-cli-example-usage-guide">
+<h1>Fly Tracker Command Line Interface (CLI) Example Usage Guide<a class="headerlink" href="#fly-tracker-command-line-interface-cli-example-usage-guide" title="Permalink to this headline">¶</a></h1>
+<p>Fly Tracker is a command line interface (CLI) tool that allows you to track flight prices and receive notifications when prices for specific routes fall below a specified amount. This document serves as a guide for how to use the <code class="docutils literal notranslate"><span class="pre">fly_tracker</span></code> module effectively.</p>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#installation">Installation</a></p></li>
+<li><p><a class="reference external" href="#arguments">Command Line Arguments</a></p></li>
+<li><p><a class="reference external" href="#examples">Examples</a></p></li>
+</ol>
+</div>
+<div class="section" id="installation">
+<h2>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Before using Fly Tracker, you need to install it. This can be done by running the following command in your terminal:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>fly-tracker
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-line-arguments">
+<h2>2. Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<p>The fly_tracker module takes several command line arguments:</p>
+<p>–src (required): The source location (city or airport) from where you are planning to fly.
+–dest (required): The destination location (city or airport) to where you are planning to fly.
+–price (required): The maximum price you are willing to pay for the flight.
+–date (required): The date of the flight.
+–email (required): The email address where you want to receive notifications.
+The general format of the command is as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>fly_tracker<span class="w"> </span>--src<span class="w"> </span>&lt;source&gt;<span class="w"> </span>--dest<span class="w"> </span>&lt;destination&gt;<span class="w"> </span>--price<span class="w"> </span>&lt;max_price&gt;<span class="w"> </span>--date<span class="w"> </span>&lt;flight_date&gt;<span class="w"> </span>--email<span class="w"> </span>&lt;your_email&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>3. Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>If you want to track flights from New York to Boston on May 12th and get notified twice a day for all the fars below $100, you could do it in a couple of ways.Please note: In the above examples, be sure to replace <code class="docutils literal notranslate"><span class="pre">&quot;example&#64;example.com&quot;</span></code> with your own email address where you wish to receive flight fare notifications.
+Here are a couple of examples to illustrate how to use the Fly Tracker module:</p>
+<div class="section" id="example-1-tracking-flights-from-new-york-to-boston-passing-the-city-names-as-input-and-date-in-words">
+<h3>Example 1: Tracking Flights from New York to Boston - Passing the city names as input and date in words<a class="headerlink" href="#example-1-tracking-flights-from-new-york-to-boston-passing-the-city-names-as-input-and-date-in-words" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>fly_tracker<span class="w"> </span>--src<span class="w"> </span><span class="s2">&quot;New York&quot;</span><span class="w"> </span>--dest<span class="w"> </span><span class="s2">&quot;Boston&quot;</span><span class="w"> </span>--price<span class="w"> </span><span class="m">100</span><span class="w"> </span>--date<span class="w"> </span><span class="s2">&quot;12th May&quot;</span><span class="w"> </span>--email<span class="w"> </span><span class="s2">&quot;example@example.com&quot;</span>
+</pre></div>
+</div>
+<p>This is how your notification will look like:</p>
+<p><img alt="Example Image - City" src="_images/NewYork-Boston.png" /></p>
+</div>
+<div class="section" id="example-2-tracking-flights-from-new-york-to-boston-passing-the-aiport-names-as-input">
+<h3>Example 2: Tracking Flights from New York to Boston - Passing the aiport names as input<a class="headerlink" href="#example-2-tracking-flights-from-new-york-to-boston-passing-the-aiport-names-as-input" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>fly_tracker<span class="w"> </span>--src<span class="w"> </span><span class="s2">&quot;JFK&quot;</span><span class="w"> </span>--dest<span class="w"> </span><span class="s2">&quot;Boston&quot;</span><span class="w"> </span>--price<span class="w"> </span><span class="m">100</span><span class="w"> </span>--date<span class="w"> </span><span class="s2">&quot;12th May&quot;</span><span class="w"> </span>--email<span class="w"> </span><span class="s2">&quot;example@example.com&quot;</span>
+</pre></div>
+</div>
+<p>This is how your notification will look like:</p>
+<p><img alt="Example Image - Airport" src="_images/JFK-Boston.png" /></p>
+</div>
+<div class="section" id="example-3-tracking-flights-from-new-york-to-boston-passing-the-date-in-mm-dd-format">
+<h3>Example 3: Tracking Flights from New York to Boston - Passing the date in mm-dd format<a class="headerlink" href="#example-3-tracking-flights-from-new-york-to-boston-passing-the-date-in-mm-dd-format" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>fly_tracker<span class="w"> </span>--src<span class="w"> </span><span class="s2">&quot;New York&quot;</span><span class="w"> </span>--dest<span class="w"> </span><span class="s2">&quot;BOS&quot;</span><span class="w"> </span>--price<span class="w"> </span><span class="m">100</span><span class="w"> </span>--date<span class="w"> </span><span class="s2">&quot;05-12&quot;</span><span class="w"> </span>--email<span class="w"> </span><span class="s2">&quot;example@example.com&quot;</span>
+</pre></div>
+</div>
+<p>This is how your notification will look like:</p>
+<p><img alt="Example Image - Date" src="_images/JFK-BOS-05-12.png" /></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="fly_tracker.html" class="btn btn-neutral float-left" title="fly_tracker package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ritik Panda.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
