@@ -25,7 +25,7 @@ copyright = '2023, Ritik Panda'
 author = 'Ritik Panda'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.3'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
