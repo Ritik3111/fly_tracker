@@ -1,13 +1,13 @@
-Welcome to Fly Tracker's documentation!
+Welcome to Fly Tracker's documentation
 =======================================
 
 # fly_tracker
+
 An open source project that helps you get the best flight deals!
 
 ![license](https://img.shields.io/github/license/Ritik3111/fly_tracker)
 ![issues](https://img.shields.io/github/issues/Ritik3111/fly_tracker)
 [![PyPI](https://img.shields.io/pypi/v/fly-tracker)](https://pypi.org/project/fly-tracker/)
-
 
 ## Code Coverage
 
@@ -22,13 +22,13 @@ The user has the option to set up notifications for the tracked route which can 
 
 ## Table of Contents
 
-- [Installation](#Installation)
-- [Usage](#Usage) 
-- [Example](#Example)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Example](#example)
 
-## Installation 
+## Installation
 
-To install the library: 
+To install the library:
 
 `pip install fly_tracker`
 
@@ -61,7 +61,7 @@ To receive notifications regarding fares below $100 for the New York to Boston r
    :caption: Contents:
 
    modules
-
+   examples
    
 Indices and tables
 ==================
