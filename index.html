@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Fly Tracker’s documentation! &mdash; Fly Tracker 0.0.1 documentation</title>
+  <title>Welcome to Fly Tracker’s documentation! &mdash; Fly Tracker 0.0.3 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -102,14 +102,22 @@ The user has the option to set up notifications for the tracked route which can 
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>Run the following command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">fly_tracker</span> <span class="pre">--src</span> <span class="pre">src-city</span> <span class="pre">--dst</span> <span class="pre">dest-city</span> <span class="pre">--price</span> <span class="pre">price</span> <span class="pre">--date</span> <span class="pre">date</span></code></p>
-<p>Replace src-city, dest-city, price, and date with your desired values. This will start tracking the flight prices for the specified route.</p>
+<p>The library takes the following arguments:</p>
+<p>| Argument | Name | Type | Description
+| ——– | ——– | ——– | ——– |
+| src | Source | string | Source City |
+| dst | Destination | string |Destination City |
+| price | Price | int |The threshold price that you want to set |
+| date | Date | string | The date you want to fly on |
+| email | Email Address | string | The email address where you want to receive the notifications |</p>
+<p>Run the following command:
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">flytracker</span> <span class="pre">--src</span> <span class="pre">&lt;</span> <span class="pre">src-city</span> <span class="pre">&gt;</span> <span class="pre">--dest</span> <span class="pre">&lt;</span> <span class="pre">dest-city</span> <span class="pre">&gt;</span> <span class="pre">--price</span> <span class="pre">&lt;</span> <span class="pre">price</span> <span class="pre">&gt;</span> <span class="pre">--date</span> <span class="pre">&lt;</span> <span class="pre">date</span> <span class="pre">&gt;</span> <span class="pre">--email</span> <span class="pre">&lt;</span> <span class="pre">email</span> <span class="pre">&gt;</span></code></p>
+<p>Replace &lt; src-city &gt;, &lt; dest-city &gt;, &lt; price &gt;, &lt; date &gt; and &lt; email &gt; with your desired values. This will start tracking the flight prices for the specified route.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">fly_tracker</span> <span class="pre">--src</span> <span class="pre">&quot;New</span> <span class="pre">York&quot;</span> <span class="pre">--dst</span> <span class="pre">&quot;Boston&quot;</span> <span class="pre">--price</span> <span class="pre">100</span> <span class="pre">--date</span> <span class="pre">&quot;12</span> <span class="pre">May&quot;</span></code></p>
-<p>This creates a ‘Results_TimeStamp.csv’ file with all airfares between New York and Boston on 12th May below 100$.</p>
+<p>To receive notifications regarding fares below $100 for the New York to Boston route on May 12th, please execute the following command, with the specified email address included:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">flytracker</span> <span class="pre">--src</span> <span class="pre">&quot;New</span> <span class="pre">York&quot;</span> <span class="pre">--dest</span> <span class="pre">&quot;Boston&quot;</span> <span class="pre">--price</span> <span class="pre">100</span> <span class="pre">--date</span> <span class="pre">&quot;12th</span> <span class="pre">May&quot;</span> <span class="pre">--email</span> <span class="pre">&quot;pandaritik39&#64;gmail.com&quot;</span></code></p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
