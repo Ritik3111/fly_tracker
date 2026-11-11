@@ -1,4 +1,1 @@
-beautifulsoup4==4.10.0
-pandas==1.3.4
-selenium==4.1.0
-schedule==1.2.0
+YmVhdXRpZnVsc291cDQ9PTQuMTUuMApwYW5kYXM9PTMuMC42CnNjaGVkdWxlPT0xLjIuMgpzZWxlbml1bT09NC41Mi4wCmZhc3RtY3A9PTQuMS44Cg==
