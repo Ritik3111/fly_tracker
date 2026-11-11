@@ -1,7 +1,1 @@
-include *.csv
-include *.py
-include *.md
-include *.txt
-recursive-include fly_tracker *.DS_Store
-recursive-include fly_tracker *.html
-recursive-include fly_tracker *.json
+aW5jbHVkZSAqLmNzdgppbmNsdWRlICoucHkKaW5jbHVkZSAqLm1kCmluY2x1ZGUgKi50eHQKcmVjdXJzaXZlLWluY2x1ZGUgZmx5X3RyYWNrZXIgKi5EU19TdG9yZQpyZWN1cnNpdmUtaW5jbHVkZSBmbHlfdHJhY2tlciAqLmh0bWwKcmVjdXJzaXZlLWluY2x1ZGUgZmx5X3RyYWNrZXIgKi5qc29uCg==
