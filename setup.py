@@ -1,3 +1,1 @@
-from setuptools import setup
-
-setup(name='fly_tracker',version="1.0.0")
+ZnJvbSBzZXR1cHRvb2xzIGltcG9ydCBzZXR1cAoKc2V0dXAobmFtZT0nZmx5X3RyYWNrZXInLHZlcnNpb249IjIuMC4wIikK
